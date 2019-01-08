@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title 채팅방
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous")
+    link(rel="stylesheet" href="/style.css")
+    link(rel="stylesheet" href="/room.css")
+  body
+    header
+      div PROCHAT
+      #w_id
+        | 접속자
+        span 
+    section
+      #w_users
+        div imdff
+        div dkesldf
+        div sdkf
+        div sdcdsjfk
+        div sdflkjal
+      #r-title= title
+      a#exit-btn(href="/waiting") 나가기
+    section
+      fieldset#r-chat
+        #chat-list
+          for chat in chats
+            if chat.user === user
+              .mine(style='color:'+chat.user)
+                div= chat.user
+                if chat.img
+                  img(src='/img/' + chat.img)
+                else
+                  div= chat.chat
+            else if chat.user === 'system'
+              .system
+                div= chat.chat
+            else
+              .other(style='color:'+chat.user)
+                div= chat.user
+                if chat.img
+                  img(src='/img/' + chat.img)
+                else
+                  div= chat.chat
+      form#chat-form(action="/" method="post" enctype="multipart/form-data")
+        label(for="form-img") 사진 올리기
+        input#form-img(type="file" name="img" accept="image/*")
+        input#form-chat(type="text" name="chat")
+        button(type="submit") 전송
+    script(src="/socket.io/socket.io.js")
+    script.
+      var roomId = '#{room._id}';
+      var user = '#{user}';
+    script(src="/room.js")

@@ -1,0 +1,80 @@
+#r-title {
+  font-size: 30px;
+  margin-top: -20px;
+  margin-left: 20px;
+  text-align: center;
+}
+
+#exit-btn {
+  z-index: 100;
+  position: absolute;
+  margin-top: 20px;
+  font-size: 20px;
+  right: 10px;
+}
+
+#r-chat {
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  height: 380px;
+  padding: 10px;
+  margin: 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+#chat-list > div {
+  margin-bottom: 10px;
+}
+
+#chat-list .mine > div:nth-child(1),
+#chat-list .other > div:nth-child(1) {
+  font-size: 12px;
+  padding-right: 5px;
+}
+#chat-list .mine > div:nth-child(2),
+#chat-list .other > div:nth-child(2) {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+#chat-list .mine {
+  text-align: right;
+}
+
+#chat-list .system {
+  text-align: center;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#chat-form {
+  text-align: right;
+  margin: 20px;
+  margin-bottom: 20px;
+}
+
+#form-img {
+  display: none;
+}
+
+#form-chat {
+  height: 30px;
+  width: 50%;
+  padding: 0 10px;
+  box-sizing: border-box
+}
+
+#chat-form label {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#chat-form button {
+  height: 30px;
+  padding: 5px;
+}

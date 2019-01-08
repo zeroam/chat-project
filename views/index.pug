@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title 로그인
+    link(rel="stylesheet" href="style.css")
+  body
+    header
+      div PROCHAT
+    section
+      h1 Welcome!
+      #login
+        form(action="")
+          table
+            tr
+              td
+                label(for="id") ID
+              td
+                input#id(type="text")
+              td(rowspan="2")
+                button LOGIN
+            tr
+              td
+                label(for="pw") PW
+              td
+                input#pw(type="password")
+            tr
+          a#guest(href="/waiting") Guest Login
+          a(href="") Register |
+          a(href="") Forget ID/PW?

@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title 대기실
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous")
+    link(rel="stylesheet" href="style.css")
+  body
+    header
+      div PROCHAT
+      #w_id
+        | 접속자
+        span 
+    section
+      #w_users
+      #w_create
+        div
+          .w_create_inner
+            i.fas.fa-plus-circle
+      #w_rooms
+        for room in rooms
+          -var password = room.password? 'true':'false'
+          .w_room(data-id=room._id data-password=password)
+            div= room.title
+            div= room.password? '비밀방': '공개방'
+            div
+              | (
+              span(class='w_people')= room.count
+              | /#{room.max})
+      if error
+        .error= error
+    script(src="/socket.io/socket.io.js")
+    script(src="waiting.js")

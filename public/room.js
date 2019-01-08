@@ -1,6 +1,7 @@
 var rChat = document.querySelector('#r-chat');
 var chatList = document.querySelector('#chat-list');
-var socket = io.connect('http://localhost:8001/chat', {
+var host = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+var socket = io.connect(host+'/chat', {
   path: '/socket.io'
 });
 
@@ -66,10 +67,8 @@ document.querySelector('#chat-form').addEventListener('submit', function (e) {
 document.querySelector('#form-img').addEventListener('change', function(e) {
   var formData = new FormData();
   var xhr = new XMLHttpRequest();
-  console.log(e.target.files);
   formData.append('img', e.target.files[0]);
   // 이미지 파일 확장자가 .png, .gif, .jpg, .jpeg 가 아닌것은 에러메시지
-  console.log(formData);
   xhr.onload = function() {
     if(xhr.status === 200) {
       e.target.file = null;

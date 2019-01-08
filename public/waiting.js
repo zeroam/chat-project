@@ -77,7 +77,8 @@ function cbCreateRoom() {
 document.querySelector('#w_create i').addEventListener('click', cbCreateRoom);
 
 // 소켓 연결
-var socket = io.connect('http://localhost:8001/room', { path: '/socket.io' });
+var host = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+var socket = io.connect(host+'/room', { path: '/socket.io' });
 var rooms = document.querySelector('#w_rooms');
 socket.on('newRoom', function(data) {
   var wRoom = document.createElement('div');

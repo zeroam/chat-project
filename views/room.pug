@@ -45,7 +45,8 @@ html(lang="en")
                 else
                   div= chat.chat
       form#chat-form(action="/" method="post" enctype="multipart/form-data")
-        label(for="form-img") 사진 올리기
+        label(for="form-img")
+          i(class="fas fa-camera")
         input#form-img(type="file" name="img" accept="image/*")
         input#form-chat(type="text" name="chat")
         button(type="submit") 전송
